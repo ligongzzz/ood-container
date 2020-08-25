@@ -1,0 +1,10 @@
+BootStrap: docker
+From: ubuntu
+
+# firefox
+%post
+    apt update
+    apt install -y --no-install-recommends \
+        firefox \
+        ttf-wqy-microhei
+    rm -rf /var/lib/apt/lists/*
