@@ -35,12 +35,9 @@ From: debian:buster
         make \
         unzip \
         zip \
-        zlib1g
-    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
-    locale-gen en_US.utf8
-    /usr/sbin/update-locale LANG=en_US.UTF-8
-    BUILDDEPS="curl \
-        default-jdk \
+        zlib1g-dev \
+        libtiff5-dev \
+        libreadline-dev \
         libbz2-dev \
         libcairo2-dev \
         libcurl4-openssl-dev \
@@ -49,12 +46,15 @@ From: debian:buster
         libicu-dev \
         libpcre3-dev \
         libpng-dev \
-        libreadline-dev \
-        libtiff5-dev \
-        liblzma-dev \
+        curl \
+        perl \
+        liblzma-dev
+    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+    locale-gen en_US.utf8
+    /usr/sbin/update-locale LANG=en_US.UTF-8
+    BUILDDEPS="default-jdk \
         libx11-dev \
         libxt-dev \
-        perl \
         tcl8.6-dev \
         tk8.6-dev \
         texinfo \
@@ -65,8 +65,7 @@ From: debian:buster
         x11proto-core-dev \
         xauth \
         xfonts-base \
-        xvfb \
-        zlib1g-dev"
+        xvfb"
     apt-get install -y --no-install-recommends ${BUILDDEPS}
     mkdir -p /var/tmp && cd /var/tmp/
     ## Download source code
@@ -136,6 +135,8 @@ From: debian:buster
         procps \
         python-setuptools \
         sudo \
+        pkg-config \
+        libxml2-dev \
         wget
 %post
     if [ -z ${RSTUDIO_VERSION} ]; \

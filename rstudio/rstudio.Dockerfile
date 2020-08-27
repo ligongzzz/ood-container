@@ -36,12 +36,9 @@ RUN apt-get update && \
         make \
         unzip \
         zip \
-        zlib1g && \
-    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
-    locale-gen en_US.utf8 && \
-    /usr/sbin/update-locale LANG=en_US.UTF-8 && \
-    BUILDDEPS="curl \
-        default-jdk \
+        zlib1g-dev \
+        libtiff5-dev \
+        libreadline-dev \
         libbz2-dev \
         libcairo2-dev \
         libcurl4-openssl-dev \
@@ -50,12 +47,15 @@ RUN apt-get update && \
         libicu-dev \
         libpcre3-dev \
         libpng-dev \
-        libreadline-dev \
-        libtiff5-dev \
-        liblzma-dev \
+        curl \
+        perl \
+        liblzma-dev && \
+    echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
+    locale-gen en_US.utf8 && \
+    /usr/sbin/update-locale LANG=en_US.UTF-8 && \
+    BUILDDEPS="default-jdk \
         libx11-dev \
         libxt-dev \
-        perl \
         tcl8.6-dev \
         tk8.6-dev \
         texinfo \
@@ -66,8 +66,7 @@ RUN apt-get update && \
         x11proto-core-dev \
         xauth \
         xfonts-base \
-        xvfb \
-        zlib1g-dev" && \
+        xvfb" && \
     apt-get install -y --no-install-recommends $BUILDDEPS && \
     mkdir -p /var/tmp/ && cd /var/tmp/ && \
     ## Download source code
@@ -135,6 +134,8 @@ RUN apt-get update && \
         procps \
         python-setuptools \
         sudo \
+        pkg-config \
+        libxml2-dev \
         wget && \
     if [ -z ${RSTUDIO_VERSION} ]; \
     then RSTUDIO_URL="https://www.rstudio.org/download/latest/stable/server/bionic/rstudio-server-latest-amd64.deb"; \
