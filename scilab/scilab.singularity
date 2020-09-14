@@ -1,9 +1,9 @@
 BootStrap: docker
-From: mtmiller/octave
+From: ubuntu:20.04
 
-# octave
+# scilab 6.1.0
 %post
     apt update
     apt install -y --no-install-recommends \
-        libqt5sql5-sqlite
+        scilab
     rm -rf /var/lib/apt/lists/*
