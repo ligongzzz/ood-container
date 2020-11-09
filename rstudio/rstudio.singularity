@@ -137,6 +137,7 @@ From: debian:buster
         sudo \
         pkg-config \
         libxml2-dev \
+        jags \
         wget
 %post
     if [ -z ${RSTUDIO_VERSION} ]; \
