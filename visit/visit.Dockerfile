@@ -10,7 +10,7 @@ RUN yum install -y \
     mkdir -p /var/tmp && \
     wget -q -nc --no-check-certificate \
          -O /var/tmp/visit3_1_3.linux-x86_64-rhel7.tar.gz \
-         https://github.com/visit-dav/visit/releases/download/v3.1.3/visit3_1_3.linux-x86_64-rhel7.tar.gz && \
+         https://github.com/visit-dav/visit/releases/download/v3.1.3/visit3_1_3.linux-x86_64-rhel7-wmesa.tar.gz && \
     tar xf /var/tmp/visit3_1_3.linux-x86_64-rhel7.tar.gz && \
     mv visit3_1_3.linux-x86_64 /opt/
 
