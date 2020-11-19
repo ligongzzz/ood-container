@@ -1,0 +1,10 @@
+BootStrap: docker
+From: ubuntu:20.04
+
+# blender
+%post
+    apt update
+    apt install -y --no-install-recommends \
+        blender
+    rm -rf /var/lib/apt/lists/*
+
